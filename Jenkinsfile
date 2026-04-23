@@ -1,4 +1,3 @@
-// Jenkinsfile - Pipeline declaratif Windows
 pipeline {
     agent any
 
@@ -7,7 +6,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo '=== Etape 1 : Build ==='
-                echo 'Compilation du projet en cours...'
                 bat 'type README.md'
             }
         }
@@ -15,17 +13,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo '=== Etape 2 : Test ==='
-                echo 'Execution des tests...'
-                
-                // si Node.js est installé sur ton PC
-                bat 'node test.js'
+                bat 'echo Tests en cours (pas encore config Node)'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo '=== Etape 3 : Deploy ==='
-                echo 'Deploiement en production...'
                 echo 'Application deployee avec succes !'
             }
         }
@@ -34,12 +28,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline termine !'
-        }
-        success {
-            echo 'SUCCES : toutes les etapes sont passees'
-        }
-        failure {
-            echo 'ECHEC : une etape a echoue'
         }
     }
 }
