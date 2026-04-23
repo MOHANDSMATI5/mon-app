@@ -7,14 +7,14 @@ stage('Build') {
 steps {
 echo '=== Etape 1 : Build ==='
 echo 'Compilation du projet en cours...'
-sh 'cat README.md'
+bat 'cat README.md'
 }
 }
 stage('Test') {
 steps {
 echo '=== Etape 2 : Test ==='
 echo 'Execution des tests...'
-sh 'node test.js'
+bat 'node test.js'
 }
 }
 stage('Deploy') {
